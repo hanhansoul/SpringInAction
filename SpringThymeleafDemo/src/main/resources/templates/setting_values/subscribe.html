@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>subscribe</title>
+</head>
+<body>
+<form action="subscribe.html" th:action="@{/subscribe}">
+    <fieldset>
+        <input type="text" name="email"/>
+        <inupt type="submit" value="Subscribe!"
+               th:value="#{subscribe.submit}"/>
+    </fieldset>
+</form>
+</body>
+</html>

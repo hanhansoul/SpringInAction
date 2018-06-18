@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>text examples</title>
+</head>
+<body>
+
+<p th:text="#{text.text}">hard-coded text.</p>
+<br/>
+<p th:utext="#{text.unescaped_text}">hard-coded unescaped text.</p>
+<br/>
+<p>Today is: <span th:text="${today}">2018-6-17</span></p>
+</body>
+</html>

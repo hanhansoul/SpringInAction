@@ -4,7 +4,7 @@
 <head>
     <meta content="text/html;charset=UTF-8"/>
     <title sec:authentication="name"></title>
-    <!--<link rel="stylesheet" th:href="@{css/bootstrap.min.css}" />-->
+    <link rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
     <style type="text/css">
         body {
             padding-top: 50px;
@@ -39,7 +39,7 @@
         <p class="bg-primary" th:text="${msg.content}"></p>
 
         <div sec:authorize="hasRole('ROLE_ADMIN')"> <!-- 用户类型为ROLE_ADMIN 显示 -->
-            <p class="bg-info" th:text="${msg.etraInfo}"></p>
+            <p class="bg-info" th:text="${msg.info}"></p>
         </div>
 
         <div sec:authorize="hasRole('ROLE_USER')"> <!-- 用户类型为 ROLE_USER 显示 -->
