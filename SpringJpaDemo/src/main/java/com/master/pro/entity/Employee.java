@@ -1,8 +1,10 @@
 package com.master.pro.entity;
 
 import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 public class Employee {
@@ -21,6 +23,18 @@ public class Employee {
     private ParkingSpace parkingSpace;
     @ManyToMany
     private List<Project> projects;
+
+    @ElementCollection(targetClass = VacationEntry.class)
+    private Collection vacationBookings;
+
+    @ElementCollection
+    private List<String> nicknames;
+
+    @ElementCollection
+    @CollectionTable(name="EMP_PHONE")
+    @MapKeyColumn(name="PHONE_TYPE")
+    @Column(name="PHONE_NUM")
+    private Map<String, String> phoneNumbers;
 
     public Employee() {
     }
@@ -70,5 +84,53 @@ public class Employee {
 
     public void setSalary(float salary) {
         this.salary = salary;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
+    public ParkingSpace getParkingSpace() {
+        return parkingSpace;
+    }
+
+    public void setParkingSpace(ParkingSpace parkingSpace) {
+        this.parkingSpace = parkingSpace;
+    }
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
+
+    public Collection getVacationBookings() {
+        return vacationBookings;
+    }
+
+    public void setVacationBookings(Collection vacationBookings) {
+        this.vacationBookings = vacationBookings;
+    }
+
+    public List<String> getNicknames() {
+        return nicknames;
+    }
+
+    public void setNicknames(List<String> nicknames) {
+        this.nicknames = nicknames;
+    }
+
+    public Map<String, String> getPhoneNumbers() {
+        return phoneNumbers;
+    }
+
+    public void setPhoneNumbers(Map<String, String> phoneNumbers) {
+        this.phoneNumbers = phoneNumbers;
     }
 }
